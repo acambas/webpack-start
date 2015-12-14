@@ -1,33 +1,31 @@
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = {
-	entry: ['babel-polyfill', './js/app.js'],
+	entry: [
+		'webpack-hot-middleware/client',
+		'./js/app.js'],
 	output: {
-		path: path.resolve('public/assets'),
+		path: path.join(__dirname, '/public/assets'),
 		publicPath: '/assets/',
 		filename: 'bundle.js'
 	},
 	plugins: [
-		new ExtractTextPlugin('styles.css')
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NoErrorsPlugin(),
+		new webpack.optimize.OccurenceOrderPlugin(),
+		new ExtractTextPlugin('styles.css'),
 	],
-	devServer: {
-		contentBase: 'public'
-	},
+	devtool: 'cheap-module-eval-source-map',
 	module: {
-		// preLoaders: [
-		// 	{ test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/ }
-		// ],
 		loaders: [
 			{
 				test: /\.js$/,
-				exclude: /\node_modules/,
-				loader: "babel-loader",
-				query: {
-					//plugins: ['transform-runtime'],
-					presets: ['react', 'es2015'],
-				}
+				loaders: ['babel'],
+				include: path.join(__dirname, 'js')
 			},
+
 			{
 				test: /\.css$/,
 				exclude: /\node_modules/,
@@ -40,13 +38,9 @@ module.exports = {
 			},
 			{ test: /\.(png|jpg|ttf|woff2|svg|woff)/, loader: 'url-loader?limit=1000' },
 			{ test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader" },
-            //{ test: /\.(woff|woff2)$/, loader:"url-loader?prefix=font/&limit=5000" },
+            // //{ test: /\.(woff|woff2)$/, loader:"url-loader?prefix=font/&limit=5000" },
             //{ test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=application/octet-stream" },
             //{ test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=image/svg+xml" }
 		]
-	},
-
-	resolve: {
-		extensions: ['', '.js', '.es6']
 	}
 };

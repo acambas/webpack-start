@@ -6,13 +6,4 @@ import {Test} from './helloWorld';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// const Test = React.createClass({
-// 	render:function(){
-// 		return <div className={'fa fa-camera-retro fa-lg'}> 
-// 		{this.props.sasa}
-// 		</div>
-// 	}
-// });
-
-
-ReactDOM.render(<Test sasa='Hell world' /> , document.getElementById('app'));
+ReactDOM.render(<Test sasa='Hello world' /> , document.getElementById('app'));

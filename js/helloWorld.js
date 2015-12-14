@@ -1,11 +1,8 @@
-import React from 'react';
-
-const Test = React.createClass({
-	render:function(){
-		return <div className={'fa fa-camera-retro fa-lg'}> 
-		{this.props.sasa}
+const Test = ({sasa}) => (
+	<div className={'fa fa-camera-retro fa-lg'}> 
+		{sasa}
 		</div>
-	}
-});
+)
+
 
 export  {Test};
