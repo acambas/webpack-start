@@ -3,15 +3,22 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
-	entry: [
-		'./js/app.js'],
+	entry: {
+		vendor: [
+			'react',
+			'react-dom'
+		],
+		bundle: [
+			'./js/app.js']
+	},
 	output: {
 		path: path.join(__dirname, '/public/assets'),
 		publicPath: '/assets/',
-		filename: 'bundle.js'
+		filename: '[name].js'
 	},
 	plugins: [
 		new webpack.optimize.OccurenceOrderPlugin(),
+		new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js", Infinity),
 		new ExtractTextPlugin('styles.css'),
 	],
 	module: {

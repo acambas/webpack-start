@@ -7,4 +7,4 @@ const ReactDOM =  require('react-dom');
 const Test =  require('./helloWorld') ;
 
 
-ReactDOM.render(<Test sasa='Hello world' /> , document.getElementById('app'));
+ReactDOM.render(<Test sasa='Hello world ' /> , document.getElementById('app'));

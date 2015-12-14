@@ -3,21 +3,28 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
-	entry: [
-		'webpack-hot-middleware/client?reload=true',
-		'./js/app.js'],
+	entry: {
+		vendor: [
+			'react',
+			'react-dom'
+		],
+		bundle: [
+			'webpack-hot-middleware/client?reload=true',
+			'./js/app.js']
+	},
 	output: {
 		path: path.join(__dirname, '/public/assets'),
 		publicPath: '/assets/',
-		filename: 'bundle.js'
+		filename: '[name].js'
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
 		new webpack.optimize.OccurenceOrderPlugin(),
+		new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js", Infinity),
 		new ExtractTextPlugin('styles.css'),
 	],
-	devtool: 'cheap-module-eval-source-map',
+	devtool: 'source-map',
 	module: {
 		loaders: [
 			{
