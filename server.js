@@ -42,3 +42,5 @@ if (require.main === module) {
     console.log("Listening on %j", server.address());
   });
 }
+
+module.exports = app;
