@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "node_modules/webpack/"
+    "clean": "rimraf public/assets",
+    "start": "node server",
+    "build": "npm run clean && webpack --config webpack.config.prod.js -p"
   },
   "author": "",
   "license": "ISC",
