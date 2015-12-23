@@ -9,7 +9,7 @@ module.exports = {
 			'react-dom'
 		],
 		bundle: [
-			'./js/app.js']
+			'./client/app.js']
 	},
 	output: {
 		path: path.join(__dirname, '/public/assets'),
@@ -19,7 +19,7 @@ module.exports = {
 	plugins: [
 		new webpack.optimize.OccurenceOrderPlugin(),
 		new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js", Infinity),
-		new ExtractTextPlugin('styles.css'),
+		new ExtractTextPlugin('styles.css')
 	],
 	module: {
 		loaders: [

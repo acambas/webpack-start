@@ -1,11 +1,18 @@
  {
+   "parser": "babel-eslint",
   "ecmaFeatures": {
     "es6" : true,
     "jsx": true,
     "node" : true,
     "browser" : true
   },
-
+   "env": {
+     "browser": true,
+     "node": true
+   },
+   "globals": {
+     "React": true
+   },
   "plugins": [
     "react"
   ],
