@@ -9,7 +9,7 @@ module.exports = {
 			'react-dom'
 		],
 		bundle: [
-			'./client/app.js']
+            path.join(__dirname, 'client/app.js')]
 	},
 	output: {
 		path: path.join(__dirname, '/public/assets'),
@@ -26,7 +26,7 @@ module.exports = {
 			{
 				test: /\.js$/,
 				loader: 'babel-loader',
-				include: path.join(__dirname, 'js'),
+				include: path.join(__dirname, 'client'),
 				query: {
 					presets: ["react", "es2015"]
 				}

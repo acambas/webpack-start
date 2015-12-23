@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf public/assets",
     "start": "node server",
-    "build": "npm run clean && webpack --config webpack.config.prod.js -p",
+    "build": "npm run clean&&webpack --config webpack.config.prod.js -p",
     "test": "mocha --compilers js:babel-core/register --recursive"
   },
   "author": "",
@@ -53,7 +53,7 @@
     "express": "^4.13.3",
     "font-awesome": "^4.4.0",
     "morgan": "^1.6.1",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react": ">=0.14.3",
+    "react-dom": ">=0.14.3"
   }
 }

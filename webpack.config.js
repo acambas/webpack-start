@@ -10,7 +10,7 @@ module.exports = {
 		],
 		bundle: [
 			'webpack-hot-middleware/client?reload=true',
-			'./client/app.js']
+            path.join(__dirname, 'client/app.js')]
 	},
 	output: {
 		path: path.join(__dirname, '/public/assets'),
@@ -20,9 +20,9 @@ module.exports = {
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
-		new webpack.optimize.OccurenceOrderPlugin(),
+		//new webpack.optimize.OccurenceOrderPlugin(),
 		new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js", Infinity),
-		new ExtractTextPlugin('styles.css'),
+		new ExtractTextPlugin('styles.css')
 	],
 	devtool: 'source-map',
 	module: {
@@ -30,7 +30,7 @@ module.exports = {
 			{
 				test: /\.js$/,
 				loader: 'babel-loader',
-				include: path.join(__dirname, 'js'),
+				include: path.join(__dirname, 'client'),
 				query: {
 					presets: ["react", "es2015"],
 					plugins: [

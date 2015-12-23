@@ -1,6 +1,6 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/font-awesome/scss/font-awesome.scss'
-import '../style/app.scss';
+import '../styles/app.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
